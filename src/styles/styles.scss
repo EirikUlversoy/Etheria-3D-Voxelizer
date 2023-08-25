@@ -1,0 +1,172 @@
+@import "~bootstrap/scss/bootstrap";
+
+
+.toolBar {
+    position: fixed;
+    top: 0;
+    display: flex;
+
+    &.toolBar-top {
+        margin: 0.6rem;
+
+        &>* {
+            margin: 0.4rem;
+        }
+    }
+
+    &.toolBar-side {
+        right: 0;
+        margin: 1rem;
+        flex-direction: column;
+
+        .toolBar-section {
+            display: flex;
+            flex-direction: column;
+            align-items: right;
+
+            .toolbar-element {
+                display: flex;
+                flex-direction: row-reverse;
+                margin: .2rem;
+                .btn {
+                    background: rgba(200, 200, 200, .7);
+                    color: black;
+                    transition: .2s ease;
+                    width: 2.8rem;
+                    height: 2.8rem;
+
+                    &:hover,
+                    &.active {
+                        color: #ddd;
+                    }
+                }
+                button {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                }
+
+                .dropleft {
+                    display: inline-flex;
+                    padding: 0;
+                    .dropdown-menu-wrapper {
+                        position: absolute;
+                        opacity: 0;
+                        pointer-events: none;
+                        transform: translateX(-8.8rem);
+                        transition: .1s ease;
+
+                        .input-range {
+                            padding: .5rem;
+                            margin: 0 .4rem;
+                            border-radius: .25rem;
+                            background:rgba(200, 200, 200, .7);
+
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+
+
+                            .text-input {
+                                width: 3.6rem;
+                                margin-bottom: .2rem;
+                            }
+                            .range-input {
+                                width: 8rem;
+                            }
+                        }
+                    }
+                    &:hover .dropdown-menu-wrapper {
+                        opacity: 1;
+                        pointer-events: all;
+                        transform: translateX(-9.8rem);
+                    }
+                }
+
+                .selection-list {
+                    display: flex;
+                    flex-direction: row-reverse;
+
+                    .selection-element {
+                        order: 1;
+                        transition: .2s ease;
+                        margin-left: .4rem;
+
+                        &.deselected {
+                            pointer-events: none;
+                            opacity: 0;
+                            order: 2;
+                        }
+                    }
+                    &:hover .selection-element.deselected {
+                        pointer-events: all;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+
+    }
+}
+
+
+#colorBar {
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    width: 100%;
+    max-width: 63rem;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .colorSwatchWrapper {
+        padding: 0.1rem;
+        width: calc((100vw - 2rem)/21);
+        max-width: 2.8rem;
+        height: calc((100vw - 2rem)/21);
+        max-height: 2.8rem;
+        cursor: pointer;
+
+        .colorSwatch {
+            width: 100%;
+            height: 100%;
+            transition: .2s ease;
+            border: 0px solid black;
+            border-radius: 5px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            p {
+                margin-bottom: 0;
+            }
+        }
+
+        &:hover {
+            .colorSwatch {
+                border: 2px solid gray;
+                transform: scale(1.2);
+            }
+        }
+
+        &.active {
+            .colorSwatch {
+                border: 2px solid black;
+
+            }
+        }
+
+    }
+}
+
+ 
